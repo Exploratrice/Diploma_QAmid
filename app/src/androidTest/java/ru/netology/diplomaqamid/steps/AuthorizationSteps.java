@@ -78,16 +78,58 @@ public class AuthorizationSteps {
                 .perform(replaceText("%$*@&(*^"), closeSoftKeyboard());
     }
 
-    public static void clickLoginFieldSpaceBetweenLetters() {
-        Allure.step("Поставить пробел между букв в поле Логин ");
-        onView(getAuthorizationElementsLoginField())
-                .perform(replaceText("login 2"), closeSoftKeyboard());
-    }
-
     public static void clickLoginFieldLettersOfDifferentCase() {
         Allure.step("Ввести в поле Логин буквы разного регистра");
         onView(getAuthorizationElementsLoginField())
                 .perform(replaceText("LOgin2"), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldSpaceBetweenLetters() {
+        Allure.step("Поставить пробел между букв в поле Логин");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("login 2"), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldSpaceAtTheBeginning() {
+        Allure.step("Поставить пробел в начале строки в поле Логин");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText(" login2"), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldSpaceAtTheEnd() {
+        Allure.step("Поставить пробел в конце строки в поле Логин");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("login2 "), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldWithHieroglyph() {
+        Allure.step("Ввести в поле Логин иероглифы");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("円炎"), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldWithSerifCharacters() {
+        Allure.step("Ввести в поле Логин символы с засечками");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("čárkou"), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldWithCharactersAndNumbers() {
+        Allure.step("Ввести в поле Логин буквы и цифры");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("login12345"), closeSoftKeyboard());
+    }
+
+    public static void clickRestrictionWhenManyLettersInLoginField() {
+        Allure.step("Ввести в поле Логин большое количество символов");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("fdfgdkfjhkdghfgkhfjkjfkghfkhfjkvfjvbzkvbzjvbsjkfhkjdvd"), closeSoftKeyboard());
+    }
+
+    public static void clickLoginFieldHyphenBetweenLetters() {
+        Allure.step("Поставить дефис между букв в поле Логин");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("log-in"), closeSoftKeyboard());
     }
 
     public static void clickPasswordFieldIsEmpty(){
@@ -118,16 +160,58 @@ public class AuthorizationSteps {
                 .check(matches(isDisplayed()));
     }
 
+    public static void clickPasswordFieldLettersOfDifferentCase(){
+        Allure.step("Ввести в поле Пароль буквы разного регистра");
+        onView(getAuthorizationElementsPasswordField())
+                .perform(replaceText("PasSWord2"), closeSoftKeyboard())
+                .check(matches(isDisplayed()));
+    }
+
     public static void clickPasswordFieldSpaceBetweenLetters() {
         Allure.step("Ввести в поле Пароль пробел в середине");
         onView(getAuthorizationElementsPasswordField())
                 .perform(replaceText("password 2"), closeSoftKeyboard());
     }
 
-    public static void clickPasswordFieldLettersOfDifferentCase(){
-        Allure.step("Ввести в поле Пароль буквы разного регистра");
-        onView(getAuthorizationElementsPasswordField())
-                .perform(replaceText("PasSWord2"), closeSoftKeyboard())
-                .check(matches(isDisplayed()));
+    public static void clickPasswordFieldSpaceAtTheBeginning() {
+        Allure.step("Поставить пробел в начале строки в поле Пароль");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText(" password2"), closeSoftKeyboard());
+    }
+
+    public static void clickPasswordFieldSpaceAtTheEnd() {
+        Allure.step("Поставить пробел в конце строки в поле Пароль");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("password2 "), closeSoftKeyboard());
+    }
+
+    public static void clickPasswordFieldWithHieroglyph() {
+        Allure.step("Ввести в поле Пароль иероглифы");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("円炎"), closeSoftKeyboard());
+    }
+
+    public static void clickPasswordFieldWithSerifCharacters() {
+        Allure.step("Ввести в поле Пароль символы с засечками");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("čárkou"), closeSoftKeyboard());
+    }
+
+    public static void clickPasswordFieldWithCharactersAndNumbers() {
+        Allure.step("Ввести в поле Пароль буквы и цифры");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("password12345"), closeSoftKeyboard());
+    }
+
+    public static void clickRestrictionWhenManyLettersInPasswordField() {
+        Allure.step("Ввести в поле Пароль большое количество символов");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("fdfgdkfjhkdghfgkhfjkjfkghfkhfjkvfjvbzkvbzjvbsjkfhkjdvd"), closeSoftKeyboard());
+    }
+
+    public static void clickPasswordFieldHyphenBetweenLetters() {
+        Allure.step("Поставить дефис между букв в поле Пароль");
+        onView(getAuthorizationElementsLoginField())
+                .perform(replaceText("pass-word"), closeSoftKeyboard());
     }
 }

@@ -78,7 +78,7 @@ public class NewsControlPaneSteps {
     public static void clickButtonTitleNewsControlPanel(){
         Allure.step("Отредактировать название новости");
         onView(getNewsControlPanelElementsButtonTitleNewsControlPanel())
-                .perform(clearText(), replaceText("Отредактированный текст новости"), closeSoftKeyboard());
+                .perform(clearText(), replaceText("Новый текст новости"), closeSoftKeyboard());
     }
 
     public static void clickButtonSaveEditingNews(){

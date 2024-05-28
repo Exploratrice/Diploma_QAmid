@@ -66,7 +66,7 @@ public class NewsTest {
     }
 
     @Test
-    @Story("19")
+    @Story("33")
     @Description("Просмотр новостей в разделе Новости мобильного приложения (Positive Test)")
     public void viewingNews() {
         try {
@@ -83,7 +83,7 @@ public class NewsTest {
     }
 
     @Test
-    @Story("20")
+    @Story("34")
     @Description("Сортировка новостей в разделе Новости мобильного приложения (Positive Test)")
     public void newsSorting() {
         try {
@@ -99,7 +99,7 @@ public class NewsTest {
     }
 
     @Test
-    @Story("21")
+    @Story("35")
     @Description("Фильтрация новостей без выбора параметров в разделе Новости (Positive Test)")
     public void filteringNewsWithNoParams() {
         try {
@@ -118,7 +118,7 @@ public class NewsTest {
     }
 
     @Test
-    @Story("22")
+    @Story("36")
     @Description("Фильтрация новостей без категории, но с начальной  и конечной датой в разделе Новости (Positive Test)")
     public void filteringNewsWithCertainPeriodTime() {
         try {
@@ -141,7 +141,7 @@ public class NewsTest {
     }
 
     @Test
-    @Story("23")
+    @Story("37")
     @Description("Фильтрация новостей без категории и конечной даты, далее с добавлением конечной даты в разделе Новости (Negative Test)")
     public void filteringNewsWithCertainPeriodTimeWithoutDateEnd() {
         try {

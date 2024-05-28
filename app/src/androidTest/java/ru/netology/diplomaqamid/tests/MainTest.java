@@ -65,7 +65,7 @@ public class MainTest {
     }
 
     @Test
-    @Story("14")
+    @Story("28")
     @Description("Переход в раздел Все Новости со стартовой страницы мобильного приложения (Positive Test)")
     public void ButtonAllNews(){
         try {

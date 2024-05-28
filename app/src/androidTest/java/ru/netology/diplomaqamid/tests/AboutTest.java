@@ -67,7 +67,7 @@ public class AboutTest {
     }
 
     @Test
-    @Story("15")
+    @Story("29")
     @Description("Переход по ссылке Политика конфиденциальности в разделе О приложении (Positive Test)")
     public void transitionPrivacyPolicy() {
         try {
@@ -86,7 +86,7 @@ public class AboutTest {
     }
 
     @Test
-    @Story("16")
+    @Story("30")
     @Description("Переход по ссылке Пользовательское соглашение в разделе О приложении (Positive Test)")
     public void transitionTermsOfUse() {
         try {

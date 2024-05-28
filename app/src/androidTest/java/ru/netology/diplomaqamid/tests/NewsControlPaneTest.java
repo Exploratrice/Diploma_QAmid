@@ -74,7 +74,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("24")
+    @Story("46")
     @Description("Просмотр новостей в разделе Панель управления новостями мобильного приложения Мобильный хоспис (Positive Test)")
     public void viewingNewsControlPanel() {
         try {
@@ -92,7 +92,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("25")
+    @Story("47")
     @Description("Удаление активной новости в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void deletingActiveNews() {
         try {
@@ -113,7 +113,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("26")
+    @Story("48")
     @Description("Сортировка новостей в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void sortingNewsControlPanel() {
         try {
@@ -131,7 +131,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("27")
+    @Story("49")
     @Description("Редактирование новости в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void editNewsControlPanel() {
         try {
@@ -155,7 +155,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("28")
+    @Story("50")
     @Description("Смена статуса новости в статусе Активна на статус Не Активна в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void changeNewsStatus() {
         try {
@@ -181,7 +181,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("29")
+    @Story("51")
     @Description("Фильтрация новостей по статусу Не активна в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void filterNewsByStatusActive() {
         try {
@@ -201,7 +201,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("30")
+    @Story("52")
     @Description("Фильтрация новостей по статусу Активна в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void filterNewsByStatusNotActive() {
         try {
@@ -221,7 +221,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("31")
+    @Story("53")
     @Description("Создание новости в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void creationNewsInControlPanel() {
         try {
@@ -249,7 +249,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("32")
+    @Story("54")
     @Description("Поле Категория пустое при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldCategoryIsEmptyCreationNews() {
         try {
@@ -277,7 +277,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("33")
+    @Story("55")
     @Description("Поле Заголовок пустое при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldTitleIsEmptyCreationNews() {
         try {
@@ -305,7 +305,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("34")
+    @Story("56")
     @Description("Поле Дата публикации пустое при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldDateIsEmptyCreationNews() {
         try {
@@ -332,7 +332,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("35")
+    @Story("57")
     @Description("Поле Время пустое при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldTimeIsEmptyCreationNews() {
         try {
@@ -359,7 +359,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("36")
+    @Story("58")
     @Description("Поле Описание пустое при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldDescriptionIsEmptyCreationNews() {
         try {
@@ -387,7 +387,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("37")
+    @Story("59")
     @Description("Ввод в поле Категория названия категории при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void categoryNameCreated() {
         try {
@@ -417,7 +417,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("38")
+    @Story("60")
     @Description("Поле Категория заполнено спецсимволами при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldCategoryWithSpecialCharacters() {
         try {
@@ -446,7 +446,7 @@ public class NewsControlPaneTest {
     }
 
     @Test
-    @Story("39")
+    @Story("61")
     @Description("Поле Категория заполнено цифрами при создании новости в разделе Панель управления новостями мобильного приложения (Negative Test)")
     public void fieldCategoryConsistsOfNumbers() {
         try {
@@ -472,11 +472,10 @@ public class NewsControlPaneTest {
         SystemClock.sleep(2000);
         onView(allOf(withContentDescription("Saving failed. Try again later"), isDisplayed()));
         pressBack();
-
     }
 
     @Test
-    @Story("40")
+    @Story("62")
     @Description("Поле Дата публикации заполнено датой будущего года при создании новости в разделе Панель управления новостями мобильного приложения (Positive Test)")
     public void fieldDateConsistsOfNextYearCreatingNews() {
         try {

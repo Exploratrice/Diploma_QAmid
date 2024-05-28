@@ -66,7 +66,7 @@ public class QuotesTest {
     }
 
     @Test
-    @Story("17")
+    @Story("31")
     @Description("Развернуть и свернуть одну тематическую цитату (Positive Test)")
     public void expandThematicQuote() {
         try {
@@ -83,7 +83,7 @@ public class QuotesTest {
     }
 
     @Test
-    @Story("18")
+    @Story("32")
     @Description("Развернуть и свернуть две тематические цитаты (Positive Test)")
     public void expandfhThematicQuote() {
         try {
