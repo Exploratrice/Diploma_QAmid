@@ -13,6 +13,9 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.allOf;
 
+import static ru.iteco.fmhandroid.ui.data.DataHelper.clickChildViewWithId;
+import static ru.iteco.fmhandroid.ui.data.DataHelper.waitElement;
+
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.contrib.RecyclerViewActions;
@@ -66,7 +69,7 @@ public class NewsEditPage {
                 .check(matches(isDisplayed()));
     }
 
-    public void scrollAndClickToNewsWithTittle(String tittle) {
+    public static void scrollAndClickToNewsWithTittle(String tittle) {
         DataHelper.waitElement(R.id.news_list_recycler_view);
         onView(withId(R.id.news_list_recycler_view))
                 .check(matches(isDisplayed()))
@@ -81,8 +84,9 @@ public class NewsEditPage {
         onView(allOf(withId(R.id.news_item_material_card_view), hasDescendant(withText(tittle))))
                 .perform(DataHelper.clickChildViewWithId(R.id.edit_news_item_image_view));
     }
+
     public void confirmDelete() {
-        DataHelper.waitElement(android.R.id.button1);
+        waitElement(android.R.id.button1);
         confirmDeleteNewsButton.perform(click());
     }
 
@@ -96,12 +100,12 @@ public class NewsEditPage {
     public void deleteNews(String tittle) {
         scrollAndClickToNewsWithTittle(tittle);
         onView(allOf(withId(R.id.news_item_material_card_view), hasDescendant(withText(tittle))))
-                .perform(DataHelper.clickChildViewWithId(R.id.delete_news_item_image_view));
+                .perform(clickChildViewWithId(R.id.delete_news_item_image_view));
         confirmDelete();
     }
 
     public void refreshListOfNews() {
         refreshZone.perform(ViewActions.swipeDown());
-        DataHelper.waitElement(R.id.news_list_recycler_view);
+        waitElement(R.id.news_list_recycler_view);
     }
 }

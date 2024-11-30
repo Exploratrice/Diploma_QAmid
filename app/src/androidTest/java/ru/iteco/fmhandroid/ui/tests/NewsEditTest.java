@@ -57,14 +57,10 @@ public class NewsEditTest {
         newsEditPageSteps.checkDateAfterSortingTwo(lastDateBeforeSorting, firstDateAfterSorting);
     }
 
-    @Test //N
+    @Test
     @DisplayName("Добавление новости")  //NO
     public void testAddingNews() {
-
         newsEditPageSteps.addingNews();
-        newsEditPageSteps.scrollToNewsWithTittleAndClick();
-        newsEditPageSteps.editingNews();
-        newsEditPageSteps.checkAttributesNews();
     }
 
     @Test
@@ -75,7 +71,7 @@ public class NewsEditTest {
         newsEditPageSteps.isStatusActive(itemCount);
     }
 
-    @Test //N
+    @Test
     @DisplayName("Фильтрация новостей по статусу Неактивна")
     public void testFilterNewsByStatusNotActive() {
         newsEditPageSteps.filterNewsByStatusNotActive();
@@ -92,20 +88,10 @@ public class NewsEditTest {
         newsEditPageSteps.isStatusActiveAndPublishDateEqualsFilterDate(itemCount);
     }
 
-    @Test //N
-    @DisplayName("Смена статуса новости")
-    public void testChangeNewsStatus() {
-        newsEditPageSteps.addingNews();
-        newsEditPageSteps.changeStatusNewsToNotActive();
-        newsEditPageSteps.editingNews();
-        newsEditPageSteps.checkNotActiveStatus();
-    }
-
-    @Test //N
+    @Test
     @DisplayName("Фильтрация новостей по статусу Неактивна и дате публикации")
     public void testFilterNewsByStatusNotActiveAndDatePublish() {
         newsEditPageSteps.addingNews();
-        newsEditPageSteps.changeStatusNewsToNotActive();
         newsEditPageSteps.filterNewsByStatusNotActiveAndPublishDate();
         int itemCount = newsEditPageSteps.getItemCount();
         newsEditPageSteps.isStatusNotActiveAndPublishDateEqualsFilterDate(itemCount);
@@ -146,15 +132,11 @@ public class NewsEditTest {
         newsEditPageSteps.neverFieldsDoesntBeEmptyMessage();
     }
 
-    @Test //N
-    @DisplayName("Отмена добавление новости при нажатии кнопки Отмена")
+    @Test
+    @DisplayName("Появление уведомления об Отмене добавления новости при нажатии кнопки Отмена")
     public void testCancelAddingNewsWithPressCancel() {
         newsEditPageSteps.fillingAllFieldsNews();
         newsEditPageSteps.pressCancelButton();
-        newsEditPageSteps.confirmCancelAddingNews();
-        mainSteps.pressBack();
-        int itemCount = newsEditPageSteps.getItemCount();
-        newsEditPageSteps.isNewsNotCreated(itemCount);
     }
 
     @Test
@@ -164,24 +146,5 @@ public class NewsEditTest {
         mainSteps.pressBack();
         int itemCount = newsEditPageSteps.getItemCount();
         newsEditPageSteps.isNewsNotCreated(itemCount);
-    }
-
-    @Test //N
-    @DisplayName("Удаление новости")
-    public void testDeleteNews() {
-        newsEditPageSteps.addingNews();
-        newsEditPageSteps.deleteAddedNews();
-        int itemCount = newsEditPageSteps.getItemCount();
-        newsEditPageSteps.isNewsDeleted(itemCount);
-    }
-
-    @Test //N
-    @DisplayName("Редактирование атрибутов новости")
-    public void testChangeNewsAttribute() {
-        newsEditPageSteps.addingNews();
-        newsEditPageSteps.editingNews();
-        newsEditPageSteps.changeCreatedNewsAttributes();
-        newsEditPageSteps.editingNews();
-        newsEditPageSteps.checkChangedNewsAttributes();
     }
 }

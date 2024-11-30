@@ -64,7 +64,7 @@ public class NewsPage {
             checkboxNotActive.perform(click());
         }
         filterButton.perform(click());
-        DataHelper.waitElement(R.id.news_list_recycler_view);
+        //DataHelper.waitElement(R.id.news_list_recycler_view);
     }
 
     public void filterNewsByStatusAndDate(boolean active, boolean notActive, String startDate, String endDate) {

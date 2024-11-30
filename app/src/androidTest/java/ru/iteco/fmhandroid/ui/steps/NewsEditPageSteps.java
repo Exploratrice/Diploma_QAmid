@@ -9,6 +9,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static ru.iteco.fmhandroid.ui.data.Data.tittleNews;
 import static ru.iteco.fmhandroid.ui.data.DataHelper.waitUntilVisible;
 
 import ru.iteco.fmhandroid.ui.data.Data;
@@ -20,6 +21,8 @@ import ru.iteco.fmhandroid.ui.pages.AddingNewsPage;
 import ru.iteco.fmhandroid.ui.pages.EditNews;
 import ru.iteco.fmhandroid.ui.pages.NewsEditPage;
 import ru.iteco.fmhandroid.ui.pages.NewsPage;
+
+import static ru.iteco.fmhandroid.ui.pages.NewsEditPage.scrollAndClickToNewsWithTittle;
 import static ru.iteco.fmhandroid.ui.pages.NewsPage.errorAddingMessageId;
 
 public class NewsEditPageSteps {
@@ -104,7 +107,7 @@ public class NewsEditPageSteps {
     @Step("Добавить новость")
     public void addingNews() {
         Allure.step("Добавить новость");
-        addingNewsPage.addNews(Data.categoryFifth, Data.tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
+        addingNewsPage.addNews(Data.categoryFifth, tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
         DataHelper.waitElement(R.id.news_list_recycler_view);
         newsEditPage.refreshListOfNews();
     }
@@ -118,13 +121,13 @@ public class NewsEditPageSteps {
     @Step("Открыть новость на редактирование")
     public void editingNews() {
         Allure.step("Открыть новость на редактирование");
-        newsEditPage.editNews(Data.tittleNews);
+        newsEditPage.editNews(tittleNews);
     }
 
     @Step("Проверить, что все атрибуты новости соответствуют заданным при ее создании")
     public void checkAttributesNews() {
         Allure.step("Проверить, что все атрибуты новости соответствуют заданным при ее создании");
-        onView(withText(Data.tittleNews)).check(matches(isDisplayed()));
+        onView(withText(tittleNews)).check(matches(isDisplayed()));
         onView(withText(Data.dateNews)).check(matches(isDisplayed()));
         onView(withText(Data.timeNews)).check(matches(isDisplayed()));
         onView(withText(Data.descriptionNews)).check(matches(isDisplayed()));
@@ -183,7 +186,7 @@ public class NewsEditPageSteps {
     @Step("Произвести смену статуса новости на Неактивна")
     public void changeStatusNewsToNotActive() {
         Allure.step("Произвести смену статуса новости на Неактивна");
-        newsEditPage.changeNewsStatus(Data.tittleNews);
+        newsEditPage.changeNewsStatus(tittleNews);
     }
 
     @Step("Проверить, что статус новости Неактивна")
@@ -213,7 +216,7 @@ public class NewsEditPageSteps {
     @Step("Создать новость с незаполненным полем Категория")
     public void addNewsWithEmptyFieldCategory() {
         Allure.step("Создать новость с незаполненным полем Категория");
-        addingNewsPage.addNews("", Data.tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
+        addingNewsPage.addNews("", tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
     }
 
     @Step("Создать новость с незаполненным полем Заголовок")
@@ -225,25 +228,25 @@ public class NewsEditPageSteps {
     @Step("Создать новость с незаполненным полем Дата")
     public void addNewsWithEmptyFieldDate() {
         Allure.step("Создать новость с незаполненным полем Дата");
-        addingNewsPage.addNews(Data.categoryFifth, Data.tittleNews, "", Data.timeNews, Data.descriptionNews);
+        addingNewsPage.addNews(Data.categoryFifth, tittleNews, "", Data.timeNews, Data.descriptionNews);
     }
 
     @Step("Создать новость с незаполненным полем Время")
     public void addNewsWithEmptyFieldTime() {
         Allure.step("Создать новость с незаполненным полем Время");
-        addingNewsPage.addNews(Data.categoryFifth, Data.tittleNews, Data.dateNews, "", Data.descriptionNews);
+        addingNewsPage.addNews(Data.categoryFifth, tittleNews, Data.dateNews, "", Data.descriptionNews);
     }
 
     @Step("ПСоздать новость с незаполненным полем Описание")
     public void addNewsWithEmptyFieldDescription() {
         Allure.step("Создать новость с незаполненным полем Описание");
-        addingNewsPage.addNews(Data.categoryFifth, Data.tittleNews, Data.dateNews, Data.timeNews, "");
+        addingNewsPage.addNews(Data.categoryFifth, tittleNews, Data.dateNews, Data.timeNews, "");
     }
 
     @Step("Заполнить все поля создаваемой новости")
     public void fillingAllFieldsNews() {
         Allure.step("Заполнить все поля создаваемой новости");
-        addingNewsPage.fillingNewsFields(Data.categoryFifth, Data.tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
+        addingNewsPage.fillingNewsFields(Data.categoryFifth, tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
     }
 
     @Step("Нажать Отмена")
@@ -265,14 +268,14 @@ public class NewsEditPageSteps {
         for (int i = 0; i < itemCount; i++) {
             NewsEditPage.scrollNews(i);
             String actualTittle = DataHelper.getTextFromNews(R.id.news_item_title_text_view, i);
-            assertNotEquals(Data.tittleNews, actualTittle);
+            assertNotEquals(tittleNews, actualTittle);
         }
     }
 
     @Step("Удалить созданную новость")
     public void deleteAddedNews() {
         Allure.step("Удалить созданную новость");
-        newsEditPage.deleteNews(Data.tittleNews);
+        newsEditPage.deleteNews(tittleNews);
         DataHelper.waitElement(R.id.news_list_recycler_view);
     }
 
@@ -282,7 +285,7 @@ public class NewsEditPageSteps {
         for (int i = 0; i < itemCount; i++) {
             NewsEditPage.scrollNews(i);
             String actualTittle = DataHelper.getTextFromNews(R.id.news_item_title_text_view, i);
-            assertNotEquals(Data.tittleNews, actualTittle);
+            assertNotEquals(tittleNews, actualTittle);
         }
     }
 
