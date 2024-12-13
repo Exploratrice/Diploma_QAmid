@@ -32,6 +32,32 @@ public class NewsEditPageSteps {
     NewsEditPage newsEditPage = new NewsEditPage();
     NewsPage newsPage = new NewsPage();
 
+    @Step("Добавить новость")
+    public void addingNews() {
+        Allure.step("Добавить новость");
+        addingNewsPage.addNews(Data.categoryFifth, tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
+        DataHelper.waitElement(R.id.news_list_recycler_view);
+        newsEditPage.refreshListOfNews();
+    }
+
+    @Step("Проверить, что все атрибуты новости соответствуют заданным при ее создании")
+    public void checkAttributesNews() {
+        Allure.step("Проверить, что все атрибуты новости соответствуют заданным при ее создании");
+        onView(withText(tittleNews)).check(matches(isDisplayed()));
+        onView(withText(Data.dateNews)).check(matches(isDisplayed()));
+    }
+
+    @Step("Скролл списка до созданной новости и кликаем на нее")
+    public void scrollToNewsWithTittleAndClick() {
+        Allure.step("Скролл списка до созданной новости и кликаем на нее");
+        newsEditPage.scrollAndClickToNewsWithTittle(Data.tittleNews);
+    }
+
+    @Step("Открыть новость на редактирование")
+    public void editingNews() {
+        Allure.step("Открыть новость на редактирование");
+        newsEditPage.editNews(tittleNews);
+    }
 
     @Step("Проверить сообщение о недопустимости наличия пустых полей при создании новости")
     public void neverFieldsDoesntBeEmptyMessage() {
@@ -102,35 +128,6 @@ public class NewsEditPageSteps {
     public void checkDateAfterSortingTwo(String lastDateBeforeSorting, String firstDateAfterSorting) {
         Allure.step("Проверить, что дата последней новости до сортировки равна дате первой новости после сортировки");
         assertEquals(lastDateBeforeSorting, firstDateAfterSorting);
-    }
-
-    @Step("Добавить новость")
-    public void addingNews() {
-        Allure.step("Добавить новость");
-        addingNewsPage.addNews(Data.categoryFifth, tittleNews, Data.dateNews, Data.timeNews, Data.descriptionNews);
-        DataHelper.waitElement(R.id.news_list_recycler_view);
-        newsEditPage.refreshListOfNews();
-    }
-
-    @Step("Скролл списка до созданной новости и кликаем на нее")
-    public void scrollToNewsWithTittleAndClick() {
-        Allure.step("Скролл списка до созданной новости и кликаем на нее");
-        newsEditPage.scrollAndClickToNewsWithTittle(Data.tittleNews);
-    }
-
-    @Step("Открыть новость на редактирование")
-    public void editingNews() {
-        Allure.step("Открыть новость на редактирование");
-        newsEditPage.editNews(tittleNews);
-    }
-
-    @Step("Проверить, что все атрибуты новости соответствуют заданным при ее создании")
-    public void checkAttributesNews() {
-        Allure.step("Проверить, что все атрибуты новости соответствуют заданным при ее создании");
-        onView(withText(tittleNews)).check(matches(isDisplayed()));
-        onView(withText(Data.dateNews)).check(matches(isDisplayed()));
-        onView(withText(Data.timeNews)).check(matches(isDisplayed()));
-        onView(withText(Data.descriptionNews)).check(matches(isDisplayed()));
     }
 
     @Step("Произвести фильтрацию новостей по статусу Активна")

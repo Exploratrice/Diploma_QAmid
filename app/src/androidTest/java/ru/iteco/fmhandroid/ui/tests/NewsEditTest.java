@@ -58,9 +58,10 @@ public class NewsEditTest {
     }
 
     @Test
-    @DisplayName("Добавление новости")  //NO
+    @DisplayName("Добавление новости")
     public void testAddingNews() {
         newsEditPageSteps.addingNews();
+        newsEditPageSteps.checkAttributesNews();
     }
 
     @Test
