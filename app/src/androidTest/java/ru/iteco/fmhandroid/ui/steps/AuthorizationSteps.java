@@ -1,4 +1,3 @@
-
 package ru.iteco.fmhandroid.ui.steps;
 
 import static androidx.test.espresso.Espresso.onView;

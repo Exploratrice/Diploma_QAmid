@@ -4,9 +4,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.CoreMatchers.allOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static ru.iteco.fmhandroid.ui.data.Data.tittleNews;
@@ -32,6 +30,7 @@ public class NewsEditPageSteps {
     NewsEditPage newsEditPage = new NewsEditPage();
     NewsPage newsPage = new NewsPage();
 
+
     @Step("Добавить новость")
     public void addingNews() {
         Allure.step("Добавить новость");
@@ -45,18 +44,6 @@ public class NewsEditPageSteps {
         Allure.step("Проверить, что все атрибуты новости соответствуют заданным при ее создании");
         onView(withText(tittleNews)).check(matches(isDisplayed()));
         onView(withText(Data.dateNews)).check(matches(isDisplayed()));
-    }
-
-    @Step("Скролл списка до созданной новости и кликаем на нее")
-    public void scrollToNewsWithTittleAndClick() {
-        Allure.step("Скролл списка до созданной новости и кликаем на нее");
-        newsEditPage.scrollAndClickToNewsWithTittle(Data.tittleNews);
-    }
-
-    @Step("Открыть новость на редактирование")
-    public void editingNews() {
-        Allure.step("Открыть новость на редактирование");
-        newsEditPage.editNews(tittleNews);
     }
 
     @Step("Проверить сообщение о недопустимости наличия пустых полей при создании новости")
@@ -128,6 +115,18 @@ public class NewsEditPageSteps {
     public void checkDateAfterSortingTwo(String lastDateBeforeSorting, String firstDateAfterSorting) {
         Allure.step("Проверить, что дата последней новости до сортировки равна дате первой новости после сортировки");
         assertEquals(lastDateBeforeSorting, firstDateAfterSorting);
+    }
+
+    @Step("Скролл списка до созданной новости и кликаем на нее")
+    public void scrollToNewsWithTittleAndClick() {
+        Allure.step("Скролл списка до созданной новости и кликаем на нее");
+        newsEditPage.scrollAndClickToNewsWithTittle(Data.tittleNews);
+    }
+
+    @Step("Открыть новость на редактирование")
+    public void editingNews() {
+        Allure.step("Открыть новость на редактирование");
+        newsEditPage.editNews(tittleNews);
     }
 
     @Step("Произвести фильтрацию новостей по статусу Активна")

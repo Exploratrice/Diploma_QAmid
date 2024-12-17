@@ -55,3 +55,4 @@ public class AboutPageTest {
         aboutStep.isAppPrivacyPolicyDisplayed();
     }
 }
+

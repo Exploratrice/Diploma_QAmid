@@ -40,6 +40,12 @@ public class NewsEditTest {
     MainSteps mainSteps = new MainSteps();
     NewsEditPageSteps newsEditPageSteps = new NewsEditPageSteps();
 
+    @Test
+    @DisplayName("Добавление новости")
+    public void testAddingNews() {
+        newsEditPageSteps.addingNews();
+        newsEditPageSteps.checkAttributesNews();
+    }
 
     @Test
     @DisplayName("Сортировка новостей в разделе редактирования новостей")
@@ -55,13 +61,6 @@ public class NewsEditTest {
         String lastDateAfterSorting = newsEditPageSteps.getLastDateAfterSorting(itemCount - 1);
         newsEditPageSteps.checkDateAfterSortingOne(firstDateBeforeSorting, lastDateAfterSorting);
         newsEditPageSteps.checkDateAfterSortingTwo(lastDateBeforeSorting, firstDateAfterSorting);
-    }
-
-    @Test
-    @DisplayName("Добавление новости")
-    public void testAddingNews() {
-        newsEditPageSteps.addingNews();
-        newsEditPageSteps.checkAttributesNews();
     }
 
     @Test
@@ -141,7 +140,7 @@ public class NewsEditTest {
     }
 
     @Test
-    @DisplayName("Отмена добавление новости при нажатии кнопки Назад")
+    @DisplayName("Отмена добавления новости при нажатии кнопки Назад")
     public void testCancelAddingNewsWithPressBack() {
         newsEditPageSteps.fillingAllFieldsNews();
         mainSteps.pressBack();
